@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>ReputationRadar Final Deliverable</title><style>
+:root{--bg:#f4f4f4;--paper:#ffffff;--ink:#111111;--muted:#5f5f5f;--line:#cfcfcf;--line2:#8f8f8f;--soft:#ededed;--shadow:0 10px 28px rgba(0,0,0,.07);--radius:18px;--font:Helvetica, Arial, sans-serif}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.55} a{text-decoration:none;color:inherit} strong{font-weight:700}
+.page{max-width:1360px;margin:0 auto;padding:24px}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.section{margin:0 0 24px}.section .card{padding:24px}h1,h2,h3,h4{margin:0 0 8px}h1{font-size:42px;line-height:1.02;letter-spacing:-.04em}h2{font-size:30px;letter-spacing:-.03em}h3{font-size:20px;letter-spacing:-.02em}h4{font-size:16px}p{margin:0 0 10px}.lead{font-size:17px;color:var(--muted)}.small{font-size:13px;color:var(--muted)}
+.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.header-inner{max-width:1360px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px}.brand{font-weight:800;font-size:25px;letter-spacing:-.04em}.brand-sub{font-size:13px;color:var(--muted)}.topnav{max-width:1360px;margin:0 auto;padding:0 24px 12px;display:flex;flex-wrap:wrap;gap:8px}.topnav a{padding:8px 11px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.35fr .95fr;gap:18px}.hero .card{padding:28px}.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}.kpi{padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff}.kpi b{display:block;font-size:24px;letter-spacing:-.03em}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.chip{border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:#fff;font-size:12px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.info-list{display:grid;gap:10px}.info-item{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.insight{padding:16px;border-left:4px solid #111;border:1px solid var(--line);background:#fafafa;border-radius:0 14px 14px 0}
+.table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:14px}.table th,.table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}.table th{background:#f7f7f7;text-align:left;font-size:13px}.table tr:last-child td{border-bottom:none}
+.flow-map{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}.flow-node{min-height:90px;padding:12px;border:2px solid #111;border-radius:14px;background:#fff;font-size:12px;display:flex;flex-direction:column;justify-content:space-between}.flow-node .id{font-size:11px;color:var(--muted);font-weight:700}.flow-chain{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.chain-box{padding:10px 12px;border:2px solid #111;border-radius:12px;background:#fff;min-width:130px;font-size:12px}.chain-arrow{font-size:24px;line-height:1}
+.wf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.phone-wrap{display:grid;gap:12px}.screen-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}.screen-meta .sid{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em}.screen-meta h4{margin:0}.phone{width:100%;max-width:320px;justify-self:center;border:2px solid #111;border-radius:34px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.08);overflow:hidden}.phone-top{height:26px;display:flex;justify-content:center;align-items:center;background:#fff}.notch{width:86px;height:8px;border-radius:99px;background:#111}.screen{min-height:540px;padding:10px 14px 16px;background:#fff}.status{display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:10px}.mini-brand{font-size:18px;font-weight:800;margin:14px 0 18px}.screen-title{font-size:18px;font-weight:800}.screen-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}.avatar{width:30px;height:30px;border:2px solid #111;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-left:auto}.back-chip{width:28px;height:28px;border:1.5px solid #111;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;background:#fff}.hero-logo,.verify-icon{width:58px;height:58px;border:2px solid #111;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;margin:14px auto 12px}.verify-icon{border-radius:50%}.screen-headline{font-size:24px;font-weight:800;text-align:center;letter-spacing:-.03em}.screen-headline.sm{font-size:21px}.screen-copy{text-align:center;color:var(--muted);font-size:13px;margin:8px 8px 14px}.screen-copy.small{text-align:left;margin:0 0 12px}.feature-list{display:grid;gap:8px;margin:14px 0}.feature-item{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fafafa;font-size:13px}.field-label{display:block;font-size:11px;color:var(--muted);font-weight:700;margin:10px 0 4px}.field-box{padding:11px 12px;border:1.5px solid #111;border-radius:12px;font-size:13px;background:#fff}.field-box.focus{box-shadow:inset 0 0 0 2px #555}.right{text-align:right}.tiny-link{font-size:11px;color:var(--muted);margin:6px 0 10px}.checkbox-row{display:flex;gap:8px;font-size:12px;color:var(--muted);margin:10px 0 14px}.checkbox{width:14px;height:14px;border:1.5px solid #111;border-radius:3px;flex:0 0 14px;margin-top:2px}.checkbox.checked{background:linear-gradient(135deg,#111 0 50%,#fff 50% 100%)}.btn{display:block;padding:12px 12px;border-radius:12px;text-align:center;font-weight:700;border:1.5px solid #111;margin:10px 0 0;font-size:13px}.btn.primary{background:#111;color:#fff}.btn.secondary{background:#fff;color:#111}.status-card{display:flex;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fafafa;margin:10px 0 14px;font-size:13px}.status-card.plain{display:block}.status-dot{width:10px;height:10px;border-radius:50%;background:#111}.toggle-card,.menu-card,.plan-card,.history-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:8px;font-size:13px}.toggle{width:38px;height:20px;border-radius:999px;border:1.5px solid #111;position:relative;display:inline-block;background:#fff}.toggle:after{content:'';position:absolute;top:2px;width:14px;height:14px;border-radius:50%;background:#111}.toggle.on:after{right:2px}.toggle.off:after{left:2px}.empty-spot{height:120px;border:2px dashed #111;border-radius:18px;background:repeating-linear-gradient(135deg,#fafafa 0 12px,#fff 12px 24px);margin:16px 0 12px}.score-wrap{display:flex;align-items:center;gap:16px;justify-content:center;padding:10px 0 14px}.score-ring{width:110px;height:110px;border:8px solid #111;border-right-color:#ccc;border-bottom-color:#ccc;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}.score-number{font-size:28px;font-weight:800;line-height:1}.score-small{font-size:11px;color:var(--muted)}.score-note{font-size:13px;color:var(--muted)}.pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.source-pill{padding:4px 9px;border:1px solid var(--line);border-radius:999px;font-size:11px;background:#fff}.source-pill.active{border-color:#111;background:#f3f3f3}.subhead-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;margin:6px 0 8px}.alert-card{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:8px;font-size:12px}.alert-card.link{cursor:pointer}.muted{color:var(--muted)}.badge{padding:4px 7px;border:1px solid #111;border-radius:999px;font-size:10px;font-weight:800;white-space:nowrap}.badge.high{background:#111;color:#fff}.badge.med{background:#f1f1f1}.badge.low{background:#fff}.navtabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}.navtabs a{padding:8px 6px;border:1px solid var(--line);border-radius:12px;text-align:center;font-size:11px;background:#fff}.navtabs a.active{background:#111;color:#fff;border-color:#111}.segment-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}.segment-row.small{grid-template-columns:repeat(3,1fr)}.segment-row span,.filter-row .filter{padding:7px 6px;border:1px solid var(--line);border-radius:10px;font-size:11px;text-align:center;background:#fff}.segment-row .active,.filter-row .active{background:#111;color:#fff;border-color:#111}.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.tagline-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.tiny-tag{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.summary-box{padding:12px;border:1px solid #111;border-radius:12px;background:#f8f8f8;font-size:12px;margin-bottom:10px}.meter{margin-bottom:10px}.meter-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}.meter-track{height:8px;border-radius:999px;background:#e7e7e7;overflow:hidden}.meter-fill{height:100%;background:#111}.fill-68{width:68%}.fill-42{width:42%}.subhead{font-weight:700;font-size:12px;margin:8px 0 6px}.remedy{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#fafafa;font-size:12px;margin-bottom:6px}.chart-card{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:8px}.chart-card.half{min-height:96px}.chart-title{font-size:12px;font-weight:700;margin-bottom:8px}.linechart{height:110px;border-left:2px solid #111;border-bottom:2px solid #111;position:relative;background:linear-gradient(to top,transparent 24%,#f2f2f2 24% 25%,transparent 25% 49%,#f2f2f2 49% 50%,transparent 50% 74%,#f2f2f2 74% 75%,transparent 75%)}.linechart span{position:absolute;bottom:0;width:10px;border-radius:8px 8px 0 0;background:#111}.bars{display:flex;gap:10px;align-items:flex-end;height:74px}.bars b{display:block;width:28px;background:#111;border-radius:8px 8px 0 0}.donut{padding:18px;border:2px dashed #111;border-radius:50%;width:110px;height:110px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;margin:0 auto}.plan-card{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:start}.plan-card small{grid-column:1 / -1;color:var(--muted)}.plan-card.featured{border:2px solid #111}.history-row{font-size:12px}.anno{padding:12px;border:1px solid var(--line);border-radius:14px;background:#fafafa}.anno ul{margin:0;padding-left:18px}.erd-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.entity{border:2px solid #111;border-radius:16px;overflow:hidden;background:#fff}.entity h4{padding:12px 14px;background:#111;color:#fff;margin:0;font-size:15px}.entity ul{list-style:none;margin:0;padding:0}.entity li{padding:8px 12px;border-top:1px solid var(--line);font-size:12px}.rels{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.rel{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:12px}.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.arch-box{padding:16px;border:2px solid #111;border-radius:16px;background:#fff;min-height:120px}.arch-box b{display:block;margin-bottom:6px}.print-note{font-size:12px;color:var(--muted)}
+
+.miro-board-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#fcfcfc;padding:12px}
+.miro-caption{font-size:13px;color:var(--muted);margin-top:10px}
+.miro-board{min-width:1600px;background-image:radial-gradient(#e9e9e9 1px, transparent 1px);background-size:18px 18px;border-radius:14px}
+
+@media (max-width:1100px){.hero,.grid-2,.grid-3,.grid-4,.wf-grid,.erd-wrap,.arch-grid,.flow-map,.rels{grid-template-columns:1fr 1fr}.page{padding:18px}}
+@media (max-width:760px){.hero,.grid-2,.grid-3,.grid-4,.wf-grid,.erd-wrap,.arch-grid,.flow-map,.rels{grid-template-columns:1fr}.phone{max-width:none;width:100%}h1{font-size:34px}h2{font-size:24px}.header{position:static}}
+@media print{@page{size:A4;margin:14mm}body{background:#fff;font-size:10.5pt}.header{position:static;background:#fff;border-bottom:1px solid #000}.topnav{display:none}.page{max-width:none;padding:0}.card{box-shadow:none;break-inside:avoid}.section{break-inside:avoid-page}.wf-grid{grid-template-columns:repeat(2,1fr)}.phone{max-width:260px}}
+
+.miro-clean{display:grid;gap:18px}
+.miro-board2{border:1px solid var(--line);border-radius:18px;background:#fcfcfc;padding:18px;overflow:auto}
+.miro-board2 h3{margin:0 0 14px;font-size:18px}
+.miro-board2 .diagram-row{display:flex;align-items:flex-start;gap:26px;min-width:980px;padding:8px 4px 14px}
+.miro-board2 .entity-card{width:220px;min-height:170px;border:2px solid #111;border-radius:16px;background:#fff;padding:12px 14px;box-shadow:0 4px 10px rgba(0,0,0,.04)}
+.miro-board2 .entity-card h4{margin:0 0 8px;font-size:16px}
+.miro-board2 .entity-card ul{margin:0;padding-left:18px;font-size:12px;line-height:1.5}
+.miro-board2 .entity-card li{margin:0 0 2px}
+.miro-board2 .diamond-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:48px;min-width:120px;overflow:visible}
+.miro-board2 .conn{position:absolute;top:89px;height:2px;background:#111;display:block}
+.miro-board2 .conn-left{left:-26px;width:44px}
+.miro-board2 .conn-right{left:102px;width:44px}
+.miro-board2 .conn::before,.miro-board2 .conn::after{content:"";position:absolute;top:50%;transform:translateY(-50%);width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent}
+.miro-board2 .conn-left::before{left:-1px;border-right:8px solid #111}
+.miro-board2 .conn-left::after{right:-1px;border-left:8px solid #111}
+.miro-board2 .conn-right::before{left:-1px;border-right:8px solid #111}
+.miro-board2 .conn-right::after{right:-1px;border-left:8px solid #111}
+.miro-board2 .diamond{position:relative;z-index:2;width:84px;height:84px;border:2px solid #111;background:#fff;transform:rotate(45deg);display:flex;align-items:center;justify-content:center}
+.miro-board2 .diamond span{transform:rotate(-45deg);font-weight:700;font-size:14px;text-align:center;line-height:1.1;display:block;width:90px}
+.miro-board2 .cardinality{position:relative;z-index:2;font-size:12px;font-weight:700;color:#111;display:flex;justify-content:space-between;width:100%}
+.miro-board2 .legend{margin-top:8px;font-size:12px;color:var(--muted)}
+.relationship-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+.relationship-list .rel{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:12px}
+@media (max-width:760px){.relationship-list{grid-template-columns:1fr}}
+</style></head><body><div class="header"><div class="header-inner"><div class="brand">ReputationRadar</div><div class="brand-sub">Strategy, structure, skeleton and briefing artifacts</div></div><div class="topnav"><a href="#strategy">Strategy</a><a href="#interviews">Interviews</a><a href="#personas">Personas</a><a href="#stories">User Stories</a><a href="#flows">User Flow</a><a href="#wireframes">Wireframes</a><a href="#erd">ER Model</a><a href="#architecture">Architecture</a><a href="#feasibility">Feasibility</a><a href="#ai">AI &amp; Big Data</a></div></div><div class="page"><div class="hero"><div class="card"><h1>ReputationRadar</h1><p class="lead">The app is designed to track periodic alert for SMEs, so that they can monitor their online presence and reviews, and protect their 'Reputation' by acting on these signals.</p><div class="chips"><span class="chip">Signal-based tracking</span><span class="chip">Across multiple platforms</span><span class="chip">AI-powered sentiment analysis</span><span class="chip">Mobile-first SME product</span></div><div class="kpi-grid"><div class="kpi"><b>18</b> Screens with unique IDs and explicit routes</div><div class="kpi"><b>13</b> Data entities in the ER model</div><div class="kpi"><b>4</b> Summarised interview notes</div><div class="kpi"><b>1</b> Source-of-truth naming system</div></div></div><div class="card"><h3>Submission components</h3><div class="info-list"><div class="info-item"><strong>Artefacts:</strong> Strategy, scope, interviews, insights, personas, stakeholder map, user flow, wireframes, clickdummy logic, ER model, user stories, feasibility, AI usage declaration.</div><div class="info-item"><strong>Core functionalities:</strong> SCR-01 Login, SCR-02 Sign Up, SCR-03 Verification Pending, SCR-04 Dashboard, SCR-05 Scan Config, SCR-06 Alert List, SCR-07 Alert Detail.</div><div class="info-item"><strong>Added functionalities:</strong> SCR-08 Onboarding Intro, SCR-09 Connect Sources, SCR-10 Empty Dashboard, SCR-11 Analytics Dashboard, SCR-12 Subscription Plans, SCR-13 Billing Details, SCR-14 Payment Success, SCR-15 Settings, SCR-16 Notification Preferences, SCR-17 Scan History, SCR-18 Error State.</div></div></div></div><div class="section" id="strategy"><div class="card"><h2>Strategy and Scope</h2><p class="lead">ReputationRadar is a mobile app concept for SMEs that aggregates fragmented public reputation signals, converts them into a simple Reputation Score, and highlights urgent alerts with AI-generated summaries and remedy suggestions.</p><div class="grid-2"><div><h3>Problem statement</h3><p>SMEs often discover reputation problems too late because reviews, forum discussions and media mentions are split across multiple platforms. Manual monitoring is time-consuming and inconsistent.</p><h3>Value proposition</h3><p>The app gives SME teams a single mobile-first monitoring space with scans, alerts, analytics and lightweight billing that matches visible feature value.</p></div><div><h3>MVP scope</h3><p>Authentication, business verification, source connection, Reputation Score, manual scans, alert management, Analytics Dashboard, settings, subscription plans and billing.</p><h3>Out of scope</h3><p>No automated posting, no team collaboration workflows, and no competitor benchmarking. This keeps the concept realistic and safe in ambition.</p></div></div></div></div><div class="section" id="interviews"><div class="card"><h2>Interview Notes</h2><p class="lead">We collected four interviews by talking to people in-depth, and summarised their pain points and motivation for such an app.</p><div class="grid-2"><div class="info-item"><div class="small">INT-01</div><h4>Nina Krause · Owner, 14-person home accessories webshop</h4><p><strong>Context:</strong> Checks Google Reviews and Trustpilot manually every few days and only notices Reddit or news mentions when a customer forwards them.</p><p><strong>Quote:</strong> “I can usually tell when something is going wrong, but I notice it too late. By the time I read the comments, the post has already spread.”</p><p><strong>Key need:</strong> Needs one place to see risk early without reading every platform separately.</p></div><div class="info-item"><div class="small">INT-02</div><h4>Daniel Weber · Marketing Manager, local food delivery SME</h4><p><strong>Context:</strong> Tracks campaign results in spreadsheets and screenshots review spikes after promotions. Wants a trend view rather than isolated comments.</p><p><strong>Quote:</strong> “The issue is not finding one bad review. The issue is seeing whether reputation is improving or sliding over time.”</p><p><strong>Key need:</strong> Needs trend analytics and a simple score that can be explained to leadership.</p></div><div class="info-item"><div class="small">INT-03</div><h4>Fatima Yildiz · Customer Support Lead, repair-services SME</h4><p><strong>Context:</strong> Looks for negative feedback to prepare responses, but manual monitoring takes too long and complaints are not prioritised well.</p><p><strong>Quote:</strong> “My team can respond quickly, but only if we know which complaint matters first.”</p><p><strong>Key need:</strong> Needs alert prioritisation, summaries, and concrete remedy suggestions.</p></div><div class="info-item"><div class="small">INT-04</div><h4>Jonas Hartmann · Co-founder, growing SME software reseller</h4><p><strong>Context:</strong> Budget-sensitive and cautious about paying for software that feels vague or enterprise-heavy.</p><p><strong>Quote:</strong> “If we pay monthly, I need to understand exactly what extra value we get.”</p><p><strong>Key need:</strong> Needs a simple subscription structure tied to visible feature value.</p></div></div></div></div><div class="section"><div class="card"><h2>Key Insights</h2><div class="grid-2"><div class="insight"><strong>Insight 1.</strong> Users value early warning more than exhaustive raw data collection.</div><div class="insight"><strong>Insight 2.</strong> A single Reputation Score is useful only when users can drill down into the underlying alerts.</div><div class="insight"><strong>Insight 3.</strong> Trend visibility is necessary for understanding whether the brand is recovering or declining over time.</div><div class="insight"><strong>Insight 4.</strong> Alert handling must prioritise severity and suggest the next response step.</div><div class="insight"><strong>Insight 5.</strong> SMEs need a transparent subscription structure that matches visible feature value.</div></div></div></div><div class="section" id="personas"><div class="card"><h2>Personas</h2><div class="grid-3"><div class="info-item"><div class="small">P1</div><h4>All-Seeing Operator Nina</h4><p>Wants early warning across channels, does not have time for manual monitoring, needs visible ROI for each subscription tier.</p><p><strong>Primary scope:</strong> Primary user for onboarding, scans, dashboard, billing.</p></div><div class="info-item"><div class="small">P2</div><h4>Narrative-Savvy Daniel</h4><p>Uses trends to judge whether campaigns improve trust and whether negative narratives are recurring.</p><p><strong>Primary scope:</strong> Primary user for dashboard and analytics.</p></div><div class="info-item"><div class="small">P3</div><h4>Issue-Hunting Fatima</h4><p>Needs rapid drill-down into the most severe issues and practical next-step guidance.</p><p><strong>Primary scope:</strong> Primary user for alerts and notification settings.</p></div></div></div></div><div class="section"><div class="card"><h2>Stakeholder Map</h2><table class="table"><thead><tr><th>Type</th><th>Stakeholder</th><th>Need / touchpoint</th></tr></thead><tbody><tr><td>Primary</td><td>SME Owner / Admin</td><td>Creates the account, runs scans, reviews subscription and billing.</td></tr><tr><td>Primary</td><td>Marketing Manager</td><td>Uses Dashboard and Analytics Dashboard to monitor trend changes.</td></tr><tr><td>Primary</td><td>Customer Support Lead</td><td>Uses Alert List and Alert Detail to prioritise responses.</td></tr><tr><td>Secondary</td><td>ReputationRadar Product / Dev Team</td><td>Maintains mobile UI, backend, AI orchestration, and billing logic.</td></tr><tr><td>External</td><td>Verify247</td><td>Validates business identity during account creation.</td></tr><tr><td>External</td><td>Google Reviews / Trustpilot / NewsAPI / Reddit</td><td>Provide source data that becomes DataSignal records.</td></tr><tr><td>Enabler</td><td>Cloud platform and payment provider</td><td>Run background jobs, notifications, storage, and transactions.</td></tr></tbody></table></div></div><div class="section" id="stories"><div class="card"><h2>User Stories</h2><p class="lead">Stories are written at the feature level, reference the related screen identifiers, and only use roles that change how the software is used.</p><table class="table"><thead><tr><th>Role</th><th>User story</th><th>Screen reference</th></tr></thead><tbody><tr><td>SME Owner / Admin</td><td>Register and verify the company account so that the enterprise can access monitoring features.</td><td>SCR-08, SCR-02, SCR-03</td></tr><tr><td>SME Owner / Admin</td><td>Connect data sources so that ReputationRadar scans the right review, news and community channels.</td><td>SCR-09, SCR-15</td></tr><tr><td>Marketing Manager</td><td>Run a scan and review the Reputation Score so that reputation changes are visible quickly.</td><td>SCR-05, SCR-04</td></tr><tr><td>Marketing Manager</td><td>Open the Analytics Dashboard so that score trends and alert volume can be reviewed over time.</td><td>SCR-11</td></tr><tr><td>Customer Support Lead</td><td>Open an alert and review the AI Threat Summary so that a response can be prioritised.</td><td>SCR-06, SCR-07</td></tr><tr><td>Customer Support Lead</td><td>Adjust notification thresholds so that only relevant alerts interrupt the team.</td><td>SCR-16</td></tr><tr><td>SME Owner / Admin</td><td>Review available subscription plans so that the company selects an affordable monitoring tier.</td><td>SCR-12, SCR-13, SCR-14</td></tr><tr><td>SME Owner / Admin</td><td>Check scan history so that repeated failures or score shifts can be tracked.</td><td>SCR-17, SCR-18</td></tr></tbody></table></div></div><div class="section" id="flows"><div class="card"><h2>User Flow</h2><p class="lead">The user flow is shown as a screen map plus named routes between screens. Each screen has a unique identifier, arrows mean a specific click or decision, and there are no dead ends in the primary journeys.</p><div class="flow-map"><div class="flow-node"><div class="id">SCR-08</div><strong>Onboarding Intro</strong><div>Entry point before account creation or login.</div></div><div class="flow-node"><div class="id">SCR-01</div><strong>Login</strong><div>Existing user authentication.</div></div><div class="flow-node"><div class="id">SCR-02</div><strong>Sign Up</strong><div>New enterprise account registration.</div></div><div class="flow-node"><div class="id">SCR-03</div><strong>Verification Pending</strong><div>Business verification waiting state.</div></div><div class="flow-node"><div class="id">SCR-09</div><strong>Connect Sources</strong><div>Initial source connection setup.</div></div><div class="flow-node"><div class="id">SCR-10</div><strong>Empty Dashboard</strong><div>First-run empty state before any score exists.</div></div><div class="flow-node"><div class="id">SCR-04</div><strong>Dashboard</strong><div>Live score overview and recent alerts.</div></div><div class="flow-node"><div class="id">SCR-05</div><strong>Scan Config</strong><div>Manual scan configuration and trigger.</div></div><div class="flow-node"><div class="id">SCR-06</div><strong>Alert List</strong><div>Prioritised list of alerts.</div></div><div class="flow-node"><div class="id">SCR-07</div><strong>Alert Detail</strong><div>Single alert drill-down with AI summary.</div></div><div class="flow-node"><div class="id">SCR-11</div><strong>Analytics Dashboard</strong><div>Trend and volume analytics.</div></div><div class="flow-node"><div class="id">SCR-17</div><strong>Scan History</strong><div>Historical list of scan runs.</div></div><div class="flow-node"><div class="id">SCR-15</div><strong>Settings</strong><div>Account, connection and billing settings.</div></div><div class="flow-node"><div class="id">SCR-16</div><strong>Notification Preferences</strong><div>Alert channel and severity preferences.</div></div><div class="flow-node"><div class="id">SCR-12</div><strong>Subscription Plans</strong><div>Plan comparison and selection.</div></div><div class="flow-node"><div class="id">SCR-13</div><strong>Billing Details</strong><div>Billing form and invoice details.</div></div><div class="flow-node"><div class="id">SCR-14</div><strong>Payment Success</strong><div>Successful payment confirmation.</div></div><div class="flow-node"><div class="id">SCR-18</div><strong>Error State</strong><div>Shared failure state used when an action cannot finish.</div></div></div><h4 style="margin-top:16px">Registration &amp; activation</h4><div class="flow-chain"><div class="chain-box"><strong>SCR-08</strong><br/>Onboarding Intro</div><div class="chain-arrow">→</div><div class="chain-box">Create account<br/><strong>SCR-02</strong> Sign Up</div><div class="chain-arrow">→</div><div class="chain-box">Create account<br/><strong>SCR-03</strong> Verification Pending</div><div class="chain-arrow">→</div><div class="chain-box">Open connected sources setup<br/><strong>SCR-09</strong> Connect Sources</div><div class="chain-arrow">→</div><div class="chain-box">Save connections<br/><strong>SCR-10</strong> Empty Dashboard</div><div class="chain-arrow">→</div><div class="chain-box">Configure first scan<br/><strong>SCR-05</strong> Scan Config</div><div class="chain-arrow">→</div><div class="chain-box">Run scan now<br/><strong>SCR-04</strong> Dashboard</div></div><h4 style="margin-top:16px">Manual monitoring</h4><div class="flow-chain"><div class="chain-box"><strong>SCR-04</strong><br/>Dashboard</div><div class="chain-arrow">→</div><div class="chain-box">See all<br/><strong>SCR-06</strong> Alert List</div><div class="chain-arrow">→</div><div class="chain-box">Select alert row<br/><strong>SCR-07</strong> Alert Detail</div><div class="chain-arrow">→</div><div class="chain-box">Mark as acknowledged<br/><strong>SCR-06</strong> Alert List</div><div class="chain-arrow">→</div><div class="chain-box">Dashboard tab<br/><strong>SCR-04</strong> Dashboard</div></div><h4 style="margin-top:16px">Analytics &amp; billing</h4><div class="flow-chain"><div class="chain-box"><strong>SCR-15</strong><br/>Settings</div><div class="chain-arrow">→</div><div class="chain-box">Subscription &amp; Billing<br/><strong>SCR-12</strong> Subscription Plans</div><div class="chain-arrow">→</div><div class="chain-box">Choose Professional<br/><strong>SCR-13</strong> Billing Details</div><div class="chain-arrow">→</div><div class="chain-box">Confirm subscription<br/><strong>SCR-14</strong> Payment Success</div><div class="chain-arrow">→</div><div class="chain-box">Open analytics dashboard<br/><strong>SCR-11</strong> Analytics Dashboard</div><div class="chain-arrow">→</div><div class="chain-box">Settings tab<br/><strong>SCR-15</strong> Settings</div></div></div></div><div class="section" id="wireframes"><div class="card"><h2>Wireframes</h2><p class="lead">Every wireframe below shows the actual component-level content of the screen, plus explicit button-to-screen interaction notes.</p><div class="wf-grid"><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-08</div><h4>Onboarding Intro</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="hero-logo">RR</div>
+<div class="screen-headline">ReputationRadar</div>
+<div class="screen-copy">Monitor reviews, social discussion and news mentions in one place. Detect risks earlier and act faster.</div>
+<div class="feature-list">
+<div class="feature-item">AI-generated threat summaries</div>
+<div class="feature-item">Cross-source reputation score</div>
+<div class="feature-item">Trend analytics for SMEs</div>
+</div>
+<a class="btn primary" href="javascript:void(0)">Create account</a>
+<a class="btn secondary" href="javascript:void(0)">Log in</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Primary CTA "Create account" -&gt; SCR-02 Sign Up</li><li>Secondary CTA "Log in" -&gt; SCR-01 Login</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-01</div><h4>Login</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="mini-brand">ReputationRadar</div>
+<label class="field-label">Work email</label><div class="field-box">jane@acmegmbh.de</div>
+<label class="field-label">Password</label><div class="field-box focus">••••••••••</div>
+<div class="tiny-link right">Forgot password?</div>
+<a class="btn primary" href="javascript:void(0)">Log in</a>
+<a class="btn secondary" href="javascript:void(0)">No account yet? Sign up</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>"Log in" -&gt; SCR-04 Dashboard</li><li>"No account yet? Sign up" -&gt; SCR-02 Sign Up</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-02</div><h4>Sign Up</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Create account</div></div>
+<label class="field-label">Company name</label><div class="field-box">Acme GmbH</div>
+<label class="field-label">Work email</label><div class="field-box">jane@acmegmbh.de</div>
+<label class="field-label">Password</label><div class="field-box">••••••••</div>
+<label class="field-label">Confirm password</label><div class="field-box">••••••••</div>
+<div class="checkbox-row"><span class="checkbox checked"></span><span>I agree to the Terms of Service and Privacy Policy</span></div>
+<a class="btn primary" href="javascript:void(0)">Create account</a>
+<a class="btn secondary" href="javascript:void(0)">Already registered? Log in</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-08 Onboarding Intro</li><li>"Create account" -&gt; SCR-03 Verification Pending</li><li>"Already registered? Log in" -&gt; SCR-01 Login</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-03</div><h4>Verification Pending</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="verify-icon">✉</div>
+<div class="screen-headline sm">Verify your account</div>
+<div class="screen-copy">A verification link was sent to <strong>jane@acmegmbh.de</strong>. Verify247 checks the company identity before activation.</div>
+<div class="status-card"><div class="status-dot"></div><div><strong>Status:</strong> Waiting for email confirmation</div></div>
+<a class="btn primary" href="javascript:void(0)">Open connected sources setup</a>
+<a class="btn secondary" href="javascript:void(0)">Change email</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>After verification, continue -&gt; SCR-09 Connect Sources</li><li>"Change email" -&gt; SCR-02 Sign Up</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-09</div><h4>Connect Sources</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Connect data sources</div></div>
+<div class="screen-copy small">Choose the sources ReputationRadar should monitor for your enterprise.</div>
+<div class="toggle-card"><span>Google Reviews</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>Trustpilot</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>NewsAPI</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>Reddit</span><span class="toggle off"></span></div>
+<a class="btn primary" href="javascript:void(0)">Save connections</a>
+<a class="btn secondary" href="javascript:void(0)">Manage later in settings</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>"Save connections" -&gt; SCR-10 Empty Dashboard for first-time setup</li><li>"Manage later in settings" -&gt; SCR-15 Settings</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-10</div><h4>Empty Dashboard</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><div class="screen-title">Acme GmbH</div><div class="avatar">AG</div></div>
+<div class="empty-spot"></div>
+<div class="screen-headline sm">No scan yet</div>
+<div class="screen-copy">Run the first scan to calculate the first Reputation Score and populate the alert feed.</div>
+<a class="btn primary" href="javascript:void(0)">Configure first scan</a>
+<a class="btn secondary" href="javascript:void(0)">View analytics layout</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>"Configure first scan" -&gt; SCR-05 Scan Config</li><li>"View analytics layout" -&gt; SCR-11 Analytics Dashboard</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-04</div><h4>Dashboard</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><div class="screen-title">Acme GmbH</div><div class="avatar">AG</div></div>
+<div class="score-wrap"><div class="score-ring"><div class="score-number">74</div><div class="score-small">/100</div></div><div class="score-note"><strong>Good</strong><br/>+3 pts this week</div></div>
+<div class="pills"><span class="source-pill active">Google</span><span class="source-pill active">Trustpilot</span><span class="source-pill">Reddit</span><span class="source-pill active">News</span></div>
+<div class="subhead-row"><span>Recent Alerts</span><a href="javascript:void(0)">See all</a></div>
+<div class="alert-card"><div><strong>Reddit · r/Berlin</strong><br/><span class="muted">Thread criticising delivery times</span></div><span class="badge high">High</span></div>
+<div class="alert-card"><div><strong>Google Reviews</strong><br/><span class="muted">2-star product complaint</span></div><span class="badge med">Medium</span></div>
+<div class="navtabs"><a class="active" href="javascript:void(0)">Dashboard</a><a href="javascript:void(0)">Alerts</a><a href="javascript:void(0)">Analytics</a><a href="javascript:void(0)">Settings</a></div>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>"See all" -&gt; SCR-06 Alert List</li><li>Bottom tabs -&gt; SCR-06 Alert List, SCR-11 Analytics Dashboard, SCR-15 Settings</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-05</div><h4>Scan Config</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Configure Scan</div></div>
+<div class="segment-row"><span>7d</span><span class="active">30d</span><span>90d</span><span>Custom</span></div>
+<label class="field-label">Data sources</label>
+<div class="toggle-card"><span>Google Reviews</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>Trustpilot</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>NewsAPI</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>Reddit</span><span class="toggle off"></span></div>
+<label class="field-label">Auto-scan frequency</label><div class="field-box">Every 6 hours ▾</div>
+<a class="btn primary" href="javascript:void(0)">Run scan now</a>
+<a class="btn secondary" href="javascript:void(0)">Source unavailable</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-04 Dashboard</li><li>"Run scan now" -&gt; SCR-04 Dashboard with refreshed score</li><li>"Source unavailable" -&gt; SCR-18 Error State</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-06</div><h4>Alert List</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">All Alerts</div></div>
+<div class="filter-row"><span class="filter active">High (2)</span><span class="filter">Medium (5)</span><span class="filter">Low (8)</span></div>
+<a class="alert-card link" href="javascript:void(0)"><div><strong>Reddit · r/Berlin</strong><br/><span class="muted">Thread criticising slow delivery times</span></div><span class="badge high">High</span></a>
+<a class="alert-card link" href="javascript:void(0)"><div><strong>Trustpilot</strong><br/><span class="muted">Refund complaint</span></div><span class="badge high">High</span></a>
+<a class="alert-card link" href="javascript:void(0)"><div><strong>NewsAPI</strong><br/><span class="muted">Positive article mention</span></div><span class="badge low">Low</span></a>
+<div class="navtabs"><a href="javascript:void(0)">Dashboard</a><a class="active" href="javascript:void(0)">Alerts</a><a href="javascript:void(0)">Analytics</a><a href="javascript:void(0)">Settings</a></div>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-04 Dashboard</li><li>Selecting any alert row -&gt; SCR-07 Alert Detail</li><li>Bottom tabs connect to other main sections</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-07</div><h4>Alert Detail</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Alert Detail</div></div>
+<div class="tagline-row"><span class="tiny-tag">Reddit · r/Berlin</span><span class="badge high">High risk</span></div>
+<div class="summary-box"><strong>AI Threat Summary</strong><br/>A Reddit thread criticises delivery delays exceeding 10 days and mentions competitor alternatives. Potential local brand damage risk is high.</div>
+<div class="meter"><div class="meter-label">Sentiment score <strong>-68 / 100</strong></div><div class="meter-track"><div class="meter-fill fill-68"></div></div><div class="muted">Strongly negative</div></div>
+<div class="meter"><div class="meter-label">Reach score <strong>42 / 100</strong></div><div class="meter-track"><div class="meter-fill fill-42"></div></div><div class="muted">Moderate audience exposure</div></div>
+<div class="subhead">Remedy suggestions</div>
+<div class="remedy">Acknowledge the delay publicly and provide a realistic ETA.</div>
+<div class="remedy">Contact affected customers directly and offer compensation.</div>
+<div class="remedy">Review logistics SLA with the delivery partner.</div>
+<a class="btn secondary" href="javascript:void(0)">Mark as acknowledged</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-06 Alert List</li><li>"Mark as acknowledged" returns to SCR-06 Alert List</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-11</div><h4>Analytics Dashboard</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><div class="screen-title">Analytics Dashboard</div><div class="avatar">AG</div></div>
+<div class="segment-row small"><span>7d</span><span class="active">30d</span><span>90d</span></div>
+<div class="chart-card"><div class="chart-title">Reputation Score Trend</div><div class="linechart"><span style="left:8%;height:34%"></span><span style="left:24%;height:46%"></span><span style="left:40%;height:42%"></span><span style="left:56%;height:59%"></span><span style="left:72%;height:66%"></span><span style="left:88%;height:74%"></span></div></div>
+<div class="chart-card half"><div class="chart-title">Alert Volume</div><div class="bars"><b style="height:55%"></b><b style="height:68%"></b><b style="height:38%"></b></div></div>
+<div class="chart-card half"><div class="chart-title">Source Contribution</div><div class="donut">Google 34% · Trustpilot 28% · News 24% · Reddit 14%</div></div>
+<div class="navtabs"><a href="javascript:void(0)">Dashboard</a><a href="javascript:void(0)">Alerts</a><a class="active" href="javascript:void(0)">Analytics</a><a href="javascript:void(0)">Settings</a></div>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Time filter changes the same analytics screen state</li><li>Bottom tabs connect back to SCR-04 Dashboard, SCR-06 Alert List and SCR-15 Settings</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-17</div><h4>Scan History</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Scan History</div></div>
+<div class="history-row"><span>29 Mar, 09:00</span><strong>Completed</strong><span>Score +3</span></div>
+<div class="history-row"><span>28 Mar, 21:00</span><strong>Completed</strong><span>Score -6</span></div>
+<div class="history-row"><span>28 Mar, 15:00</span><strong>Completed</strong><span>Score +1</span></div>
+<div class="history-row"><span>28 Mar, 09:00</span><strong>Failed</strong><span>NewsAPI timeout</span></div>
+<a class="btn secondary" href="javascript:void(0)">Configure next scan</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-15 Settings</li><li>"Configure next scan" -&gt; SCR-05 Scan Config</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-15</div><h4>Settings</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><div class="screen-title">Settings</div><div class="avatar">AG</div></div>
+<div class="menu-card"><a href="javascript:void(0)">Connected Sources</a></div>
+<div class="menu-card"><a href="javascript:void(0)">Notification Preferences</a></div>
+<div class="menu-card"><a href="javascript:void(0)">Scan History</a></div>
+<div class="menu-card"><a href="javascript:void(0)">Subscription &amp; Billing</a></div>
+<div class="menu-card"><a href="javascript:void(0)">Log out</a></div>
+<div class="navtabs"><a href="javascript:void(0)">Dashboard</a><a href="javascript:void(0)">Alerts</a><a href="javascript:void(0)">Analytics</a><a class="active" href="javascript:void(0)">Settings</a></div>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Settings routes only to relevant management screens</li><li>"Connected Sources" -&gt; SCR-09; "Notification Preferences" -&gt; SCR-16; "Scan History" -&gt; SCR-17; "Subscription &amp; Billing" -&gt; SCR-12; "Log out" -&gt; SCR-01</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-16</div><h4>Notification Preferences</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Notification Preferences</div></div>
+<div class="toggle-card"><span>Push notifications</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>Email alerts</span><span class="toggle on"></span></div>
+<div class="toggle-card"><span>Daily summary</span><span class="toggle off"></span></div>
+<label class="field-label">Minimum severity</label><div class="field-box">Medium or higher ▾</div>
+<a class="btn primary" href="javascript:void(0)">Save preferences</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-15 Settings</li><li>"Save preferences" -&gt; SCR-15 Settings</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-12</div><h4>Subscription Plans</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Subscription Plans</div></div>
+<div class="plan-card" style="display:block"><strong>Basic</strong><div class="muted">€19 / month</div><small>Weekly scans · Dashboard · Alerts</small></div>
+<div class="plan-card featured" style="display:block"><strong>Professional</strong><div class="muted">€49 / month</div><small>Daily scans · Alerts · Analytics</small></div>
+<div class="plan-card" style="display:block"><strong>Business</strong><div class="muted">€89 / month</div><small>6-hour scans · Alerts · Analytics · Billing support</small></div>
+<a class="btn primary" href="javascript:void(0)">Choose Professional</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-15 Settings</li><li>"Choose Professional" -&gt; SCR-13 Billing Details</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-13</div><h4>Billing Details</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="screen-row"><a class="back-chip" href="javascript:void(0)">←</a><div class="screen-title">Billing Details</div></div>
+<label class="field-label">Cardholder name</label><div class="field-box">Jane Meyer</div>
+<label class="field-label">Card number</label><div class="field-box">•••• •••• •••• 4242</div>
+<label class="field-label">Invoice email</label><div class="field-box">billing@acmegmbh.de</div>
+<label class="field-label">VAT number</label><div class="field-box">DE123456789</div>
+<a class="btn primary" href="javascript:void(0)">Confirm subscription</a>
+<a class="btn secondary" href="javascript:void(0)">Payment issue</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Back chip -&gt; SCR-12 Subscription Plans</li><li>"Confirm subscription" -&gt; SCR-14 Payment Success</li><li>"Payment issue" -&gt; SCR-18 Error State</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-14</div><h4>Payment Success</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="verify-icon">✓</div>
+<div class="screen-headline sm">Subscription active</div>
+<div class="screen-copy">The Professional plan is now active for Acme GmbH. Analytics Dashboard access has been enabled.</div>
+<a class="btn primary" href="javascript:void(0)">Open analytics dashboard</a>
+<a class="btn secondary" href="javascript:void(0)">Return to settings</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Primary CTA -&gt; SCR-11 Analytics Dashboard</li><li>Secondary CTA -&gt; SCR-15 Settings</li></ul></div></div><div class="phone-wrap"><div class="screen-meta"><div><div class="sid">SCR-18</div><h4>Error State</h4></div></div><div class="phone"><div class="phone-top"><div class="notch"></div></div><div class="screen"><div class="status"><span>9:41</span><span>●●● ▌</span></div>
+<div class="verify-icon">!</div>
+<div class="screen-headline sm">Something went wrong</div>
+<div class="screen-copy">The request could not be completed. This screen is used for scan failures, unavailable data sources, or payment issues.</div>
+<div class="status-card plain"><div><strong>Error example:</strong> NewsAPI connection timed out.</div></div>
+<a class="btn primary" href="javascript:void(0)">Retry scan setup</a>
+<a class="btn secondary" href="javascript:void(0)">Return to billing</a>
+</div></div><div class="anno"><strong>Interaction notes</strong><ul><li>Primary CTA -&gt; SCR-05 Scan Config</li><li>Secondary CTA -&gt; SCR-13 Billing Details</li></ul></div></div></div></div></div><div class="section"><div class="card"><h2>Clickdummy Logic</h2><p class="lead">The clickdummy uses the exact same screen IDs and routes as the wireframes. Navigation is limited to meaningful product actions. A separate launcher page exists only to help reviewers jump into screens during marking.</p><div class="grid-3"><div class="info-item"><strong>Main route</strong><p>SCR-08 → SCR-02 → SCR-03 → SCR-09 → SCR-10 → SCR-05 → SCR-04</p></div><div class="info-item"><strong>Monitoring route</strong><p>SCR-04 → SCR-06 → SCR-07 → SCR-06 → SCR-04</p></div><div class="info-item"><strong>Billing route</strong><p>SCR-15 → SCR-12 → SCR-13 → SCR-14 → SCR-11</p></div></div></div></div><div class="section" id="erd">
+<div class="card">
+<h2>Entity Relationship Model</h2>
+<p class="lead">The ER model is divided into specific connections to show the desired relationships between the entities and relationships, in the way they would interact</p>
+<div class="miro-clean">
+<div class="miro-board2">
+<h3>Board 1 · Enterprise, Users, Sources and Scans</h3>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>Enterprise</h4>
+<ul>
+<li>enterprise_id PK</li>
+<li>company_name</li>
+<li>industry</li>
+<li>country</li>
+<li>verification_status</li>
+<li>created_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>N</span></div>
+<div class="diamond"><span>has</span></div>
+</div>
+<div class="entity-card">
+<h4>UserAccount</h4>
+<ul>
+<li>user_id PK</li>
+<li>enterprise_id FK</li>
+<li>full_name</li>
+<li>work_email</li>
+<li>password_hash</li>
+<li>role</li>
+<li>created_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>N</span></div>
+<div class="diamond"><span>logs</span></div>
+</div>
+<div class="entity-card">
+<h4>VerificationLog</h4>
+<ul>
+<li>verification_log_id PK</li>
+<li>enterprise_id FK</li>
+<li>provider_name</li>
+<li>verification_token</li>
+<li>verification_result</li>
+<li>requested_at</li>
+<li>resolved_at</li>
+</ul>
+</div>
+</div>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>Enterprise</h4>
+<ul>
+<li>enterprise_id PK</li>
+<li>company_name</li>
+<li>industry</li>
+<li>country</li>
+<li>verification_status</li>
+<li>created_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>N</span></div>
+<div class="diamond"><span>connects</span></div>
+</div>
+<div class="entity-card">
+<h4>DataSourceConnection</h4>
+<ul>
+<li>connection_id PK</li>
+<li>enterprise_id FK</li>
+<li>source_name</li>
+<li>source_status</li>
+<li>connected_at</li>
+<li>last_sync_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>N</span></div>
+<div class="diamond"><span>runs</span></div>
+</div>
+<div class="entity-card">
+<h4>ScanJob</h4>
+<ul>
+<li>scan_job_id PK</li>
+<li>enterprise_id FK</li>
+<li>requested_by_user_id FK</li>
+<li>scan_type</li>
+<li>period_start</li>
+<li>period_end</li>
+<li>run_status</li>
+<li>created_at</li>
+<li>completed_at</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="miro-board2">
+<h3>Board 2 · Signals, Scores, Alerts and Notifications</h3>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>ScanJob</h4>
+<ul>
+<li>scan_job_id PK</li>
+<li>enterprise_id FK</li>
+<li>requested_by_user_id FK</li>
+<li>scan_type</li>
+<li>period_start</li>
+<li>period_end</li>
+<li>run_status</li>
+<li>created_at</li>
+<li>completed_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>N</span></div>
+<div class="diamond"><span>generates</span></div>
+</div>
+<div class="entity-card">
+<h4>DataSignal</h4>
+<ul>
+<li>signal_id PK</li>
+<li>scan_job_id FK</li>
+<li>enterprise_id FK</li>
+<li>connection_id FK</li>
+<li>source_name</li>
+<li>source_item_id</li>
+<li>content_type</li>
+<li>source_url</li>
+<li>published_at</li>
+<li>sentiment_score</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>0..N</span></div>
+<div class="diamond"><span>triggers</span></div>
+</div>
+<div class="entity-card">
+<h4>Alert</h4>
+<ul>
+<li>alert_id PK</li>
+<li>enterprise_id FK</li>
+<li>signal_id FK</li>
+<li>severity</li>
+<li>ai_threat_summary</li>
+<li>remedy_suggestions</li>
+<li>reach_score</li>
+<li>alert_status</li>
+<li>created_at</li>
+<li>acknowledged_at</li>
+</ul>
+</div>
+</div>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>ScanJob</h4>
+<ul>
+<li>scan_job_id PK</li>
+<li>enterprise_id FK</li>
+<li>requested_by_user_id FK</li>
+<li>scan_type</li>
+<li>period_start</li>
+<li>period_end</li>
+<li>run_status</li>
+<li>created_at</li>
+<li>completed_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>1</span></div>
+<div class="diamond"><span>calculates</span></div>
+</div>
+<div class="entity-card">
+<h4>ReputationScore</h4>
+<ul>
+<li>score_id PK</li>
+<li>enterprise_id FK</li>
+<li>scan_job_id FK</li>
+<li>composite_score</li>
+<li>score_delta</li>
+<li>positive_count</li>
+<li>neutral_count</li>
+<li>negative_count</li>
+<li>calculated_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>0..N</span></div>
+<div class="diamond"><span>sends</span></div>
+</div>
+<div class="entity-card">
+<h4>Notification</h4>
+<ul>
+<li>notification_id PK</li>
+<li>alert_id FK</li>
+<li>user_id FK</li>
+<li>channel</li>
+<li>notification_title</li>
+<li>delivery_status</li>
+<li>sent_at</li>
+<li>opened_at</li>
+</ul>
+</div>
+</div>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>UserAccount</h4>
+<ul>
+<li>user_id PK</li>
+<li>enterprise_id FK</li>
+<li>full_name</li>
+<li>work_email</li>
+<li>password_hash</li>
+<li>role</li>
+<li>created_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>0..1</span></div>
+<div class="diamond"><span>sets</span></div>
+</div>
+<div class="entity-card">
+<h4>NotificationPreference</h4>
+<ul>
+<li>preference_id PK</li>
+<li>user_id FK</li>
+<li>push_enabled</li>
+<li>email_enabled</li>
+<li>min_severity</li>
+<li>daily_summary_enabled</li>
+<li>updated_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>Alert 1</span><span>N</span></div>
+<div class="diamond"><span>notifies</span></div>
+</div>
+<div class="entity-card">
+<h4>Notification</h4>
+<ul>
+<li>notification_id PK</li>
+<li>alert_id FK</li>
+<li>user_id FK</li>
+<li>channel</li>
+<li>notification_title</li>
+<li>delivery_status</li>
+<li>sent_at</li>
+<li>opened_at</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="miro-board2">
+<h3>Board 3 · Plans, Subscription and Payments</h3>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>Enterprise</h4>
+<ul>
+<li>enterprise_id PK</li>
+<li>company_name</li>
+<li>industry</li>
+<li>country</li>
+<li>verification_status</li>
+<li>created_at</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>0..1</span></div>
+<div class="diamond"><span>subscribes</span></div>
+</div>
+<div class="entity-card">
+<h4>Subscription</h4>
+<ul>
+<li>subscription_id PK</li>
+<li>enterprise_id FK</li>
+<li>plan_id FK</li>
+<li>billing_cycle</li>
+<li>subscription_status</li>
+<li>current_period_start</li>
+<li>current_period_end</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>N</span><span>1</span></div>
+<div class="diamond"><span>uses</span></div>
+</div>
+<div class="entity-card">
+<h4>SubscriptionPlan</h4>
+<ul>
+<li>plan_id PK</li>
+<li>plan_name</li>
+<li>monthly_price</li>
+<li>scan_frequency_rule</li>
+<li>analytics_enabled</li>
+<li>alert_limit</li>
+</ul>
+</div>
+</div>
+<div class="diagram-row">
+<div class="entity-card">
+<h4>Subscription</h4>
+<ul>
+<li>subscription_id PK</li>
+<li>enterprise_id FK</li>
+<li>plan_id FK</li>
+<li>billing_cycle</li>
+<li>subscription_status</li>
+<li>current_period_start</li>
+<li>current_period_end</li>
+</ul>
+</div>
+<div class="diamond-wrap"><span class="conn conn-left"></span><span class="conn conn-right"></span>
+<div class="cardinality"><span>1</span><span>N</span></div>
+<div class="diamond"><span>records</span></div>
+</div>
+<div class="entity-card">
+<h4>PaymentTransaction</h4>
+<ul>
+<li>payment_id PK</li>
+<li>subscription_id FK</li>
+<li>amount</li>
+<li>currency</li>
+<li>payment_status</li>
+<li>invoice_reference</li>
+<li>processed_at</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div>
+<h3 style="margin:4px 0 10px">Complete relationship list</h3>
+<div class="relationship-list">
+<div class="rel">Enterprise 1 — N UserAccount</div>
+<div class="rel">Enterprise 1 — N VerificationLog</div>
+<div class="rel">Enterprise 1 — N DataSourceConnection</div>
+<div class="rel">Enterprise 1 — N ScanJob</div>
+<div class="rel">Enterprise 1 — N ReputationScore</div>
+<div class="rel">Enterprise 1 — N Alert</div>
+<div class="rel">Enterprise 1 — 0..1 Subscription</div>
+<div class="rel">UserAccount 1 — 0..1 NotificationPreference</div>
+<div class="rel">UserAccount 1 — N Notification</div>
+<div class="rel">ScanJob 1 — N DataSignal</div>
+<div class="rel">ScanJob 1 — 1 ReputationScore</div>
+<div class="rel">DataSourceConnection 1 — N DataSignal</div>
+<div class="rel">DataSignal 1 — 0..N Alert</div>
+<div class="rel">Alert 1 — 0..N Notification</div>
+<div class="rel">SubscriptionPlan 1 — N Subscription</div>
+<div class="rel">Subscription 1 — N PaymentTransaction</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="section" id="architecture"><div class="card"><h2>System Architecture</h2><div class="arch-grid"><div class="arch-box"><b>Client layer</b>Android / mobile client shows onboarding, scans, alerts, analytics, settings and billing screens.</div><div class="arch-box"><b>Integration layer</b>Connectors ingest Google Reviews, Trustpilot, NewsAPI and Reddit into raw source records.</div><div class="arch-box"><b>Processing layer</b>NLP services classify sentiment, compose AI Threat Summaries and support remedy suggestions.</div><div class="arch-box"><b>Core services</b>Auth, verification, score engine, alert service, notification service and billing service coordinate state changes.</div></div></div></div><div class="section" id="ai"><div class="card"><h2>AI and Big Data Rationale</h2><div class="grid-2"><div><h3>Big Data Advantages</h3><p>ReputationRadar combines multiple external data types and volumes over time: reviews, forum posts, comments and media mentions. The concept addresses variety, ongoing inflow and historical accumulation.</p><h3>AI-powered application</h3><p>AI is applied for sentiment classification, alert summarisation and remedy suggestion generation. The app does not claim fully autonomous decision-making, and only acts as an aid to the SMEs.</p></div><div><h3>Scope and cost</h3><p>The scope includes scheduled scans and summary generation only where value is clear. This keeps model usage and API cost more realistic for SMEs than a constant real-time monitoring claim.</p><h3>Alignment</h3><p>The business value is in terms of avoidance of disasters, the data pipeline is scalable to multiple information sources, the architecture has enough depth to extract meaningful insights, and the billing model shows cost awareness.</p></div></div></div></div><div class="section" id="feasibility"><div class="card"><h2>Feasibility Analysis</h2><div class="grid-4"><div class="info-item"><h4>Technical</h4><p>Feasible with common mobile, backend, queue, database and payment technologies. The hardest parts are connector reliability and good AI design. The challenges are SME-aligned truth and language-sentiment detection.</p></div><div class="info-item"><h4>Operational</h4><p>Safe because the app supports decision-making rather than automating public responses. SME teams remain in control.</p></div><div class="info-item"><h4>Financial</h4><p>Subscription tiers create a clear revenue model. Analytics is placed behind higher-value plans to justify the paid tier.</p></div><div class="info-item"><h4>Legal / privacy</h4><p>Company verification, login security, billing records and user notification preferences should be handled under normal GDPR and payment-provider controls.</p></div></div></div></div><div class="section"><div class="card"><h2>Subscription and Billing Model</h2><table class="table"><thead><tr><th>Plan</th><th>Price</th><th>Included</th><th>Target user</th></tr></thead><tbody><tr><td>Basic</td><td>€19 / month</td><td>Weekly scans, Dashboard, alerts</td><td>Very small SME</td></tr><tr><td>Professional</td><td>€49 / month</td><td>Daily scans, alerts, Analytics Dashboard</td><td>Growing SME</td></tr><tr><td>Business</td><td>€89 / month</td><td>6-hour scans, analytics, billing support</td><td>More active monitoring team</td></tr></tbody></table></div></div><div class="section"><div class="card"><h2>Declaration of AI Usage</h2><p>This project used generative AI as a design-support tool for drafting and refining interview notes, wireframes, user stories, structural content, interface copy, and formatting. The final concept direction, scope decisions and review of internal consistency remained the responsibility of the student team.</p></div></div></div></body></html>
