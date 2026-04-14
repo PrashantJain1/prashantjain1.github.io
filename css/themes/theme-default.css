@@ -1,0 +1,19 @@
+/* -----------------------------------------
+   theme-default.css
+   Default light theme for recruiter-friendly presentation
+----------------------------------------- */
+
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-2: #eef2f7;
+  --color-text: #1f2937;
+  --color-text-soft: #4b5563;
+  --color-heading: #0f172a;
+  --color-border: #dbe2ea;
+  --color-primary: #1d4ed8;
+  --color-primary-strong: #1e3a8a;
+  --color-primary-soft: #dbeafe;
+  --color-accent: #0f766e;
+  --color-hero: linear-gradient(135deg, #ffffff 0%, #eff6ff 50%, #f0fdfa 100%);
+}
