@@ -1,0 +1,227 @@
+/* -----------------------------------------
+   components.css
+   Buttons, cards, chips, timeline items, lists
+----------------------------------------- */
+
+.section-hero {
+  background: var(--color-hero);
+  padding-top: calc(var(--space-8) + 1rem);
+}
+
+.hero-copy p {
+  max-width: 62ch;
+  color: var(--color-text-soft);
+  font-size: var(--step-1);
+}
+
+.hero-panel,
+.card,
+.timeline-item,
+.contact-panel,
+.credential-card,
+.certificate-card,
+.footer-card {
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-panel {
+  padding: var(--space-6);
+}
+
+.metric-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.metric {
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.metric:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.metric strong {
+  display: block;
+  font-size: var(--step-2);
+  color: var(--color-heading);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.button,
+.button-secondary,
+.button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 46px;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform var(--transition), background var(--transition), border-color var(--transition);
+  cursor: pointer;
+}
+
+.button:hover,
+.button-secondary:hover,
+.button-ghost:hover,
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.button {
+  background: var(--color-primary);
+  color: white;
+}
+
+.button-secondary {
+  background: var(--color-bg);
+  color: var(--color-heading);
+  border-color: var(--color-border);
+}
+
+.button-ghost,
+.theme-toggle {
+  background: transparent;
+  color: var(--color-text-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.65rem 0.9rem;
+}
+
+.tag,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.card,
+.credential-card,
+.certificate-card,
+.contact-panel,
+.footer-card {
+  padding: var(--space-5);
+}
+
+.card h3,
+.timeline-item h3,
+.credential-card h3,
+.certificate-card h3,
+.contact-panel h3 {
+  margin-bottom: var(--space-2);
+}
+
+.card ul,
+.timeline-item ul {
+  padding-left: 1.1rem;
+  margin-bottom: 0;
+}
+
+.card li,
+.timeline-item li {
+  margin-bottom: 0.45rem;
+}
+
+.timeline-item {
+  padding: var(--space-5);
+  position: relative;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-soft);
+  font-size: var(--step--1);
+}
+
+.timeline-role {
+  margin-bottom: var(--space-2);
+}
+
+.project-card .project-links,
+.credential-links,
+.contact-links,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.project-card .project-links a,
+.credential-links a,
+.contact-links a,
+.footer-links a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.list-clean {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.list-clean li + li {
+  margin-top: 0.75rem;
+}
+
+.nav-toggle {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-bg);
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+  align-content: center;
+  justify-items: center;
+}
+
+.nav-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--color-heading);
+  border-radius: 999px;
+}
+
+.site-footer {
+  padding: 0 0 var(--space-7);
+}
+
+.footer-card {
+  margin-top: var(--space-4);
+}
+
+.kicker {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.divider-top {
+  padding-top: var(--space-5);
+  border-top: var(--border-width) solid var(--color-border);
+}
