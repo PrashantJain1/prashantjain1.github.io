@@ -1,0 +1,20 @@
+/* -----------------------------------------
+   theme-alt.css
+   Alternate bolder theme with stronger contrast
+   Switch to this file in index.html or use the theme button.
+----------------------------------------- */
+
+:root {
+  --color-bg: #fcfcfd;
+  --color-surface: #f3f4f6;
+  --color-surface-2: #e5e7eb;
+  --color-text: #111827;
+  --color-text-soft: #374151;
+  --color-heading: #020617;
+  --color-border: #d1d5db;
+  --color-primary: #7c3aed;
+  --color-primary-strong: #5b21b6;
+  --color-primary-soft: #ede9fe;
+  --color-accent: #ea580c;
+  --color-hero: linear-gradient(135deg, #faf5ff 0%, #eef2ff 50%, #fff7ed 100%);
+}
