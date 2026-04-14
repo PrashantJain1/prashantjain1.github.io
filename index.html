@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prashant Jain portfolio website for AI, Product, and Strategy opportunities." />
+  <title>Prashant Jain | AI, Product & Strategy</title>
+
+  <!-- Base styles: reset, tokens, typography -->
+  <link rel="stylesheet" href="css/base.css" />
+  <!-- Layout styles: wrappers, grids, responsive structure -->
+  <link rel="stylesheet" href="css/layout.css" />
+  <!-- Component styles: cards, buttons, chips, lists -->
+  <link rel="stylesheet" href="css/components.css" />
+  <!-- Theme file: change this href to swap the active visual theme -->
+  <link id="theme-link" rel="stylesheet" href="css/themes/theme-default.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Go to homepage">
+        <span class="brand-mark">PJ</span>
+        <span class="brand-text">
+          <strong>Prashant Jain</strong>
+          <span>AI, Product & Strategy</span>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="siteNav"
+        aria-label="Open navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#strengths">What I Bring</a>
+        <a href="#experience">Experience</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+          Switch theme
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Each section below is rendered from js/content.js by js/main.js -->
+    <section id="hero" class="section section-hero"></section>
+    <section id="snapshot" class="section"></section>
+    <section id="strengths" class="section section-muted"></section>
+    <section id="experience" class="section"></section>
+    <section id="case-studies" class="section section-muted"></section>
+    <section id="projects" class="section"></section>
+    <section id="leadership" class="section section-muted"></section>
+    <section id="credentials" class="section"></section>
+    <section id="certificates" class="section section-muted"></section>
+    <section id="contact" class="section"></section>
+  </main>
+
+  <footer id="footer" class="site-footer"></footer>
+
+  <!-- Content stays in one file so editing text is easy later -->
+  <script src="js/content.js"></script>
+  <!-- Main rendering and light interactivity -->
+  <script src="js/main.js"></script>
+</body>
+</html>
