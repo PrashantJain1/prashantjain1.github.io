@@ -15,7 +15,7 @@ window.siteContent = {
     github: "https://github.com/prashantjain1",
     linkedin: "https://www.linkedin.com/in/prashantjain287",
     availability: "Available for full-time work during ESCP lecture-free period from 15 April 2026.",
-    note: "Best positioned for AI, product & project management, strategy, innovation, and digital transformation roles."
+    note: "Best positioned for AI, product & proje management, strategy, innovation, and digital transformation roles."
   },
 
   hero: {
