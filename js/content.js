@@ -15,7 +15,7 @@ window.siteContent = {
     github: "https://github.com/prashantjain1",
     linkedin: "https://www.linkedin.com/in/prashantjain287",
     availability: "Available for full-time work during ESCP lecture-free period from 15 April 2026.",
-    note: "Best positioned for AI, product & proje management, strategy, innovation, and digital transformation roles."
+    note: "Best positioned for AI, product & project management, strategy, innovation, and digital transformation roles."
   },
 
   hero: {
@@ -47,7 +47,7 @@ window.siteContent = {
       "Strong signal for ownership, disciplined execution, and the ability to learn quickly across both technical and managerial domains."
     ],
     sideCard: {
-      title: "What this portfolio helps a recruiter see",
+      title: "About me",
       items: [
         "What kinds of problems I enjoy solving",
         "How I connect engineering work to product or business value",
